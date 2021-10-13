@@ -33,8 +33,10 @@ services:
     container_name: db
     restart: always
     tty: true
+    command: --default-authentication-plugin=mysql_native_password
     volumes:
-      - ./mysql:/var/lib/mysql
+      - ./db:/var/lib/mysql
+      - ./dump:/docker-entrypoint-initdb.d
     environment:
       - MYSQL_DATABASE=nodedb
       - MYSQL_ROOT_PASSWORD=root

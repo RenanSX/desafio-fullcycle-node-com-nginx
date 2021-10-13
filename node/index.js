@@ -12,8 +12,8 @@ const config = {
 
 const connection = mysql.createConnection(config);
 const query = util.promisify(connection.query).bind(connection);
-//const sqlInsert = `INSERT INTO people(name) values('Renan')`;
-//connection.query(sqlInsert);
+const sqlInsert = `INSERT INTO people(name) values('Renan')`;
+connection.query(sqlInsert);
 
 app.get("/", (req, res) => {
     (async () => {
